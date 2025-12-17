@@ -1,0 +1,348 @@
+* {
+  padding: o;
+  margin: 0;
+  box-sizing: border-box;
+}
+.head {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #dbc8b6;
+  box-shadow: 0 5px 5px rgb(0, 0, 0, 0.1);
+  z-index: 200;
+}
+.head-icons {
+  width: 20px;
+  height: auto;
+  cursor: pointer;
+  margin-top: 4px;
+}
+.date {
+  font-size: 20px;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.monthly-summary {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px;
+}
+.summary-expense,
+.summary-income {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.lable-expense {
+  font-size: 16px;
+  font-family: sans-serif;
+  display: flex;
+  text-decoration: underline #ffd306 8px;
+  cursor: pointer;
+}
+.lable-income {
+  font-size: 16px;
+  font-family: sans-serif;
+  display: flex;
+  text-decoration: underline #46a3ff 8px;
+  cursor: pointer;
+}
+.amount {
+  font-size: 20px;
+}
+.month-balance {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+.round-frame {
+  position: relative;
+  width: 230px;
+  height: 230px;
+  margin: 24px auto;
+  background-color: #ffd306;
+  border: 2px solid black;
+  border-radius: 200px;
+}
+.show-balance {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 200px;
+  margin: 40px;
+}
+.addBT {
+  font-size: 40px;
+  width: 50px;
+  height: 50px;
+  color: white;
+  background-color: #ff7575;
+  border: 2px solid black;
+  border-radius: 100px;
+  position: fixed;
+  bottom: 5%;
+  right: 45%;
+  box-shadow: 0 5px 5px rgb(0, 0, 0, 0.1);
+  cursor: pointer;
+  z-index: 10;
+}
+.arrow-style {
+  width: 24px;
+  height: auto;
+  cursor: pointer;
+}
+.create-form {
+  width: 90vw;
+  height: 100px;
+  box-shadow: 5px 50px 15px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  bottom: 15%;
+  right: 3%;
+  left: 3%;
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+.create-form.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.create-date {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #ffd306;
+  border-radius: 5px 5px 0 0;
+  border: 2px solid black;
+}
+.delete-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 56px;
+  height: 100%;
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ⭐ 點擊後滑出 */
+.transaction-item.active .item-content {
+  transform: translateX(-56px);
+}
+.show-today {
+  display: flex;
+  gap: 4px;
+  font-size: 16px;
+  border: 2px solid black;
+  border-radius: 25px;
+  padding: 4px 16px;
+  background-color: white;
+}
+.create-item {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  border: 2px solid black;
+  border-top: none;
+  border-radius: 0 0 5px 5px;
+  background-color: white;
+}
+.create-item input {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.create-item button {
+  width: 100px;
+  height: 100%;
+  border: none;
+  border-left: 2px solid black;
+  border-radius: 0 1px 3px 0;
+  background-color: #ff7575;
+  color: white;
+  cursor: pointer;
+}
+.create-item button:active {
+  background-color: #ee6d6d;
+}
+.select-type {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  border: 2px solid black;
+  border-top: none;
+  background-color: white;
+}
+.select-expence {
+  width: 47%;
+  height: 100%;
+  font-size: 16px;
+  text-align: center;
+  border-right: 2px solid black;
+  cursor: pointer;
+}
+.select-income {
+  width: 53%;
+  height: 100%;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+.select-expence:hover {
+  background-color: #ffd306;
+  color: white;
+}
+.select-expence.active {
+  background-color: #ffd306;
+  color: white;
+}
+.select-income:hover {
+  background-color: #46a3ff;
+  color: white;
+}
+.select-income.active {
+  background-color: #46a3ff;
+  color: white;
+}
+.transaction-day {
+  border: 2px solid black;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+.transaction {
+  width: 90vw;
+  height: auto;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 8px auto;
+}
+.transaction-date {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 8px;
+}
+.transaction-row {
+  position: relative;
+  overflow: hidden;
+}
+.transaction-item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 8px;
+  border-top: 2px solid black;
+  position: relative;
+  z-index: 2;
+  background-color: white;
+  border-radius: 0 0 7px 7px ;
+}
+/* 點擊後往左滑 */
+.transaction-item.active {
+  padding-right: 64px;
+  transition: padding-right 0.3s ease ;
+}
+.transaction-item.active .delete-btn {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+/* 垃圾桶 */
+.delete-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 32px;
+  height: 100%;
+  padding: 8px;
+  background: #ff7575;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 2px solid black;
+  z-index: 1;
+  transform: translateX(100%);
+  opacity: 0; /* 看不到 */
+  pointer-events: none; /* 點不到 */
+  transition: opacity 0.3s ease;
+}
+.select-month-form {
+  position: fixed;
+  width: 100%;
+  height: auto;
+  padding-bottom: 24px;
+  background-color: white;
+  font-size: 16px;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+  z-index: 100;
+}
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 99;
+  top: 50px;
+}
+.select-month-form.show {
+  position: fixed;
+  top: 50px;
+  transform: translateY(0);
+}
+.select-year {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+}
+.select-month {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.month {
+  text-align: center;
+  vertical-align: middle;
+  width: 80px;
+  height: 30px;
+  border: 2px solid black;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.month:hover {
+  background-color: #ffd306;
+}
+.month:active {
+  background-color: #ebc417;
+  color: white;
+}
