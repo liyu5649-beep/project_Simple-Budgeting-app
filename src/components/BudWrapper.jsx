@@ -13,7 +13,11 @@ function BudWrapper() {
   // 日期 icon 選擇
   const dateInputRef = useRef(null);
   const openDatePicker = () => {
-    dateInputRef.current?.showPicker();
+    if (dateInputRef.current && dateInputRef.current.showPicker) {
+    dateInputRef.current.showPicker();
+  } else {
+    dateInputRef.current?.click(); // fallback
+  }
   };
 
   const [showSelectMonth, setSelectMonth] = useState(false);
